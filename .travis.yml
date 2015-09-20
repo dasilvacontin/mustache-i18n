@@ -7,5 +7,9 @@ node_js:
   - 0.12
   - 4
 
+before_install:
+  - npm install -g npm@2
+  - npm install -g npm
+
 script:
   - npm run istanbul && cat ./coverage/lcov.info | coveralls
