@@ -4,16 +4,16 @@
  * Copyright (c) 2015 David da Silva
  * Licensed under the MIT license.
  */
+ /* global define: false */
 (function (global, factory) {
   if (typeof exports === 'object' && exports && typeof exports.nodeName !== 'string') {
-    factory(exports); // CommonJS
+    factory() // CommonJS
   } else if (typeof define === 'function' && define.amd) {
-    define(['exports'], factory); // AMD
+    define([], factory) // AMD
   } else {
-    global.i18n = {};
-    factory(i18n); // script, wsh, asp
+    global.i18n = factory() // script, wsh, asp
   }
-}(this, function(exports){
+}(this, function mustacheI18nFactory () {
 
   'use strict'
 
@@ -46,9 +46,7 @@
     dict = newDict
   }
 
-  exports = i18n;
-  return i18n;
+  if (module.exports) module.exports = i18n
+  else return i18n
 
-}));
-
-
+}))
