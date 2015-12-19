@@ -4,10 +4,12 @@
  * Copyright (c) 2015 David da Silva
  * Licensed under the MIT license.
  */
+
  /* global define: false */
+
 (function (global, factory) {
   if (typeof exports === 'object' && exports && typeof exports.nodeName !== 'string') {
-    factory() // CommonJS
+    module.exports = factory() // CommonJS
   } else if (typeof define === 'function' && define.amd) {
     define([], factory) // AMD
   } else {
@@ -46,7 +48,6 @@
     dict = newDict
   }
 
-  if (module.exports) module.exports = i18n
-  else return i18n
+  return i18n
 
 }))
